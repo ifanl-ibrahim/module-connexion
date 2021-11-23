@@ -1,31 +1,3 @@
-<?php
-session_start();
-$connexion = mysqli_connect('localhost', 'root', '', 'moduleconnexion');
-/*if(isset($connexion)){
-    echo 'connexion réussi';
-}
-*/
-// if (isset($_SESSION['login'])) {
-//     $name = $_SESSION['login'];
-//     echo "Bonjour $name";
-// }
-
-if (isset($_POST['submit'])) {
-    $login = $_POST['login'];
-    $password = $_POST['password'];
-    $req = "SELECT * FROM utilisateurs WHERE login = '$login' && password='$password'";
-    
-    if(mysqli_num_rows(mysqli_query($connexion, $query)) > 0){
-        $_SESSION['login'] = $login;
-       if ($_POST['login'] == 'admin') {
-           header("location: admin.php"); }
-
-       else header("location: profil.php"); }
-
-       else  echo "Le login ou le mot de passe n'est pas correct !";
-       }
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -53,24 +25,40 @@ if (isset($_POST['submit'])) {
 <main>
     <!-- zone de connexion -->
             
-        <form action="connexion.php" method="POST">
-            <h1>Connexion</h1>
-            
-            <label><b>Nom d'utilisateur</b></label>
-            <input type="text" placeholder="Entrer le nom d'utilisateur" name="username" required>
+    <form action="#" method="POST">
+        <h1>Connexion</h1>
+        <input type="text" placeholder="Entrer le nom d'utilisateur" name="login">
+        <input type="password" placeholder="Entrer le mot de passe" name="password">
+        <input type="submit" id='submit' value='LOGIN'>
+    </form>
+    <?php
+        session_start();
 
-            <label><b>Mot de passe</b></label>
-            <input type="password" placeholder="Entrer le mot de passe" name="password" required>
+        $connexion = mysqli_connect('localhost', 'root', '', 'moduleconnexion');
+        $login = $_POST["login"]; 
+        $password = $_POST["password"];
 
-            <input type="submit" id='submit' value='LOGIN'>
+        if($login !== "" && $password !== "") {
+            $req = "SELECT count(*) FROM utilisateurs WHERE login = '$login' AND password='$password'";
+            $req2 = mysqli_query($connexion,$req);
+            $res = mysqli_fetch_array($req2);
+            $count = $res['count(*)'];
+        
+            if($count!=0) {  
+                $_SESSION['login'] = $login;
+                if ($_POST['login'] == 'admin') {
+                   header("location: admin.php");
+                }
+               else header("location: profil.php");
+            }
+            else  echo $erreur = "<p id='erreur'>Le login ou le mot de passe n'est pas correct !</p>";  
+        }
+    ?>
 
-
-        </form>
-
-    </main>
+</main>
 
 <footer>
-            <li><a><img id="logo-navbar" src="./images/logoibra.png"></a></li>
+    <li><a><img id="logo-navbar" src="./images/logoibra.png"></a></li>
 </footer>
 
 </body>

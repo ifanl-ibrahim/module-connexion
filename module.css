@@ -8,27 +8,19 @@ body{
     height: 65vh;
 }
 
-#container{
-    width:400px;
-    margin:0 auto;
-    margin-top:10%;}
-
 /*** Connexion ***/
+
+table{
+    display: inline-block;}
 
 form {
     width:55vh;
     padding: 5vh;
-    border: 1px solid #f1f1f1;
-    background: #fff;
-    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
-    margin-left: 67vh;
-    margin-top: 20vh;
-    text-align: center;}
-
-#container h1{
-    width: 38%;
-    margin: 0 auto;
-    padding-bottom: 10px;}
+    border: 1vh solid darkgoldenrod;
+    margin: auto;
+    background: whitesmoke;
+    text-align: center;
+    margin-top: 5vh;}
 
 /* inputs */
 
@@ -84,7 +76,7 @@ li {
     list-style: none;}
 
 #logo-navbar{
-    width: 70px;
+    width: 8vh;
     height: auto;}
 
 li a {
@@ -106,3 +98,49 @@ footer img{
     opacity: 0.5;}
 
 /*** Footer ***/
+
+/*** Message ***/
+
+#erreur {
+    border: 10px;
+    background-color: red;
+    color: white ;
+    display: flex;
+    justify-content: center;
+    width: fit-content;
+    height: 4vh;
+    margin-left: 81vh;}
+
+/*** Message ***/
+
+/*** data ***/
+
+.data{
+    border: 0.5vh solid;
+    width: fit-content;
+    margin-left: 90vh;
+    color: white;
+    display: flex;
+    justify-content: center;}
+
+/*** data ***/
+
+/*** titre ***/
+
+.titre_user{
+    text-shadow: 2vh 1vh 0.5vh goldenrod;
+    color: white;
+    display: flex;
+    justify-content: center;
+    margin-top: 5vh;}
+
+#bienvenue{
+    width:55vh;
+    padding: 5vh;
+    border: 1vh solid darkgoldenrod;
+    margin: auto;
+    background: whitesmoke;
+    text-align: center;
+    margin-top: 5vh;}
+
+/*** titre ***/
