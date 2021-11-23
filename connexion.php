@@ -20,6 +20,16 @@
             <li><a href="./connexion.php">Connexion</a></li>
         </ul>
     </nav>
+
+    <div class="drop">
+            <!-- menu mobil  -->
+            <button class="dropbutton"><img id="logo-navbar" src="./images/logoibra.png"></button>
+            <div class="container-button">
+                <a href="./index.php">Hom</a>
+                <a href="./inscription.php">Inscription</a>
+                <a href="./connexion.php">Connexion</a>
+            </div>
+        </div>
 </header>
 
 <main>

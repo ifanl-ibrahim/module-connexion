@@ -15,7 +15,8 @@ session_start()
 <body>
 
 <header>
-    <nav>
+    <nav class="nav">
+        <!-- menu pc -->
         <ul>
             <li><a><img id="logo-navbar" src="./images/logoibra.png"></a></li>
             <li><a href="./index.php">Home</a></li>
@@ -23,6 +24,16 @@ session_start()
             <li><a href="./connexion.php">Connexion</a></li>
         </ul>
     </nav>
+
+    <div class="drop">
+            <!-- menu mobil  -->
+            <button class="dropbutton"><img id="logo-navbar" src="./images/logoibra.png"></button>
+            <div class="container-button">
+                <a href="./index.php">Hom</a>
+                <a href="./inscription.php">Inscription</a>
+                <a href="./connexion.php">Connexion</a>
+            </div>
+        </div>
 </header>
 
     <div class="logo">

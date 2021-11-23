@@ -15,11 +15,21 @@
     <nav>
         <ul>
             <li><a><img id="logo-navbar" src="./images/logoibra.png"></a></li>
-            <li><a href="./index.php">Home</a></li>
-            <li><a href="./inscription.php">Inscription</a></li>
-            <li><a href="./connexion.php">Connexion</a></li>
+                <a href="./index.php">Hom</a>
+                <a href="./inscription.php">Inscription</a>
+                <a href="./connexion.php">Connexion</a>
         </ul>
     </nav>
+
+    <div class="drop">
+            <!-- menu mobil  -->
+            <button class="dropbutton"><img id="logo-navbar" src="./images/logoibra.png"></button>
+            <div class="container-button">
+                <a href="./index.php">Hom</a>
+                <a href="./inscription.php">Inscription</a>
+                <a href="./connexion.php">Connexion</a>
+            </div>
+        </div>
 </header>
 
 <main>
@@ -49,12 +59,12 @@
             $verif_suite = mysqli_query($connexion, $verif);
         
         
-            if(!empty($login) && !empty($prenom) && !empty($nom) && !empty($password) && !empty($confirm)){
-                if(mysqli_num_rows($verif_suite) == 0){
-                    if($password == $confirm){
-                        $query = "INSERT INTO utilisateurs (login, prenom, nom, password) VALUES ('$login', '$prenom', '$nom', '$password')";
+            if(!empty($login) && !empty($prenom) && !empty($nom) && !empty($password) && !empty($confirm)) {
+                if(mysqli_num_rows($verif_suite) == 0){  //calcule et verifie dans la base de donnée 
+                    if($password == $confirm) { 
+                        $query = "INSERT INTO utilisateurs (login, prenom, nom, password) VALUES ('$login', '$prenom', '$nom', '$password')"; //ajoute les info dans la base de donnée
                         mysqli_query($connexion, $query);
-                        header("Location:connexion.php");
+                        header("Location:connexion.php"); //redigire vers la page connexion
                     }
                     else echo $erreur = '<p id="erreur">Les mots de passe ne sont pas identiques.</p>';
                 } 

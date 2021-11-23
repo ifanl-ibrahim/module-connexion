@@ -50,6 +50,16 @@ $oui="";
             
         </ul>
     </nav>
+
+    <div class="drop">
+            <!-- menu mobil  -->
+            <button class="dropbutton"><img id="logo-navbar" src="./images/logoibra.png"></button>
+            <div class="container-button">
+                <a href="./index.php">Hom</a>
+                <a href="./inscription.php">Inscription</a>
+                <a href="./connexion.php">Connexion</a>
+            </div>
+        </div>
 </header>
 
 <main>
@@ -74,11 +84,16 @@ $oui="";
         </section>
         <form action="#" method="POST">
             <p>Info</p>
+
+                <!-- UPDATE -->
+
             <?php 
                 echo "Login : $login <br>";
                 echo "Prénom : $prenom <br>";
                 echo "Nom : $nom <br>";
-                echo "Mot de passe : $password <br>";
+                echo "Mot de passe : $password <br>"; 
+
+                //zone de modif//
 
                 if (isset($_POST['modifier'])) {
                     $modification =    "Modifier le Login cliquer <input type=\"submit\" name=\"modifierlogin\" value=\"ici\"><br>
@@ -86,6 +101,8 @@ $oui="";
                                         Modifier le Prénom cliquer <input type=\"submit\" name=\"modifierprenom\" value=\"ici\"><br>
                                         Modifier le Mot de passe cliquer <input type=\"submit\" name=\"modifierpass\" value=\"ici\"><br>";
                 }
+
+                //modif login//
             
                 if (isset($_POST['modifierlogin'])) {
                     $formNewLogin =  
@@ -120,6 +137,8 @@ $oui="";
                         $vide = "Remplissez le formulaire.<br>";
                     }
                 }
+
+                //modif nom//
             
                 if (isset($_POST['modifiernom'])) {
                     $formNewNom = 
@@ -145,6 +164,8 @@ $oui="";
                         $vide = "Remplissez le formulaire.<br>";
                     }
                 }
+
+                //modif nom//
             
                 if (isset($_POST['modifierprenom'])) {
                     $formNewPrenom = "
@@ -170,6 +191,8 @@ $oui="";
                         $vide = "Remplissez le formulaire.<br>";
                     }
                 }
+
+                //modif password//
             
                 if (isset($_POST['modifierpass'])) { 
                     $formNewPass = 
@@ -207,10 +230,8 @@ $oui="";
                     }
                 
                 }
-                if (isset($_POST['deconnecter'])) {
-                    session_unset ( );
-                    header("Location: connexion.php"); 
-                    }
+
+                //zone de suppression//
             
                 if (isset($_POST['supprimer'])) {
                     $delete =  'supprimer votre compte ?<br>
