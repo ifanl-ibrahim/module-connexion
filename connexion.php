@@ -39,29 +39,33 @@
         <h1>Connexion</h1>
         <input type="text" placeholder="Entrer le nom d'utilisateur" name="login">
         <input type="password" placeholder="Entrer le mot de passe" name="password">
-        <input type="submit" id='submit' value='LOGIN'>
+        <input type="submit" id='submit' name='submit' value='LOGIN'>
     </form>
     <?php
         session_start();
 
         $connexion = mysqli_connect('localhost', 'root', '', 'moduleconnexion');
-        $login = trim($_POST['login']); 
-        $password = trim($_POST['password']);
 
-        if($login !== "" && $password !== "") {
-            $req = "SELECT count(*) FROM utilisateurs WHERE login = '$login' AND password='$password'";
-            $req2 = mysqli_query($connexion,$req);
-            $res = mysqli_fetch_array($req2);
-            $count = $res['count(*)'];
-        
-            if($count!=0) {  
-                $_SESSION['login'] = $login;
-                if ($_POST['login'] == 'admin') {
-                   header("location: admin.php");
+        if (isset($_POST['submit'])) {
+            $login = trim($_POST['login']); 
+            $password = trim($_POST['password']);
+
+            if($login !== "" && $password !== "") {
+                $req = "SELECT count(*) FROM utilisateurs WHERE login = '$login' AND password='$password'";
+                $req2 = mysqli_query($connexion,$req);
+                $res = mysqli_fetch_array($req2);
+                $count = $res['count(*)'];
+            
+                if($count!=0) {  
+                    $_SESSION['login'] = $login;
+                    if ($_POST['login'] == 'admin') {
+                       header("location: admin.php");
+                    }
+                   else header("location: profil.php");
                 }
-               else header("location: profil.php");
+                else  echo $erreur = "<p id='erreur'>Le login ou le mot de passe n'est pas correct !</p>";
             }
-            else  echo $erreur = "<p id='erreur'>Le login ou le mot de passe n'est pas correct !</p>";  
+            else echo $erreur = '<p id="erreur">Veuillez remplir le formulaire s\'il vous plait !</p>';
         }
     ?>
 

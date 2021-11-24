@@ -47,11 +47,16 @@ $oui="";
         <ul>
             <li><a><img id="logo-navbar" src="./images/logoibra.png"></a></li>
             <li><a href="./index.php">Home</a></li>
-            <li><a href="./profil.php">House</a></li>
             <?php
-                if (isset($_SESSION['nom']['admin'])) {
-                    echo "<li><a href='./admin.php'>Admin House</a></li>";
-                }
+                if (isset($_SESSION['login'])) {
+                    if ($_SESSION['login'] == "admin") {
+                        echo "<li><a href='./profil.php'>House</a></li>";
+                        echo "<li><a href='./admin.php'>Admin House</a></li>";
+                    }
+                    else {
+                        echo "<li><a href='./profil.php'>House</a></li>";
+                    }
+                } 
             ?>
         </ul>
     </nav>
@@ -60,8 +65,18 @@ $oui="";
             <!-- menu mobil  -->
             <button class="dropbutton"><img id="logo-navbar" src="./images/logoibra.png"></button>
             <div class="container-button">
-                <a href="./index.php">Hom</a>
-                <a href="./profil.php">House</a>
+                <a href="./index.php">Home</a>
+                <?php
+                    if (isset($_SESSION['login'])) {
+                        if ($_SESSION['login'] == "admin") {
+                            echo "<a href='./profil.php'>House</a>";
+                            echo "<a href='./admin.php'>Admin House</a>";
+                        }
+                        else {
+                            echo "<a href='./profil.php'>House</a>";
+                        }
+                    } 
+                ?>
             </div>
         </div>
 </header>
@@ -78,7 +93,7 @@ $oui="";
                     header("Refresh: 2; url=connexion.php");
                     echo "<p>connecte toi.</p><br><p>Redirection...</p>";
                     exit();
-                }          
+                }
                 if (!$connexion) {
                     echo "Erreur connexion";
                     exit();
@@ -95,7 +110,6 @@ $oui="";
                 echo "Login : $login <br>";
                 echo "Prénom : $prenom <br>";
                 echo "Nom : $nom <br>";
-                echo "Mot de passe : $password <br>"; 
 
                 //zone de modif//
 
@@ -124,21 +138,21 @@ $oui="";
                         $query = "UPDATE utilisateurs SET login='" . htmlentities(trim($newLogin)) . "' WHERE login='$login'";
             
                         if ($login == $newLogin) {
-                            $same = "utiliser un autre que $login<br>";
+                            $same = "<p style= 'color: red'>utiliser un autre que $login<br></p>";
                         }
                         
                         elseif (mysqli_num_rows($checklogin) == 0) {
-                            $existe = "Le login est déjà utilisé par un autre utilisateur<br>";
+                            $existe = "<p style= 'color: red'>Le login est déjà utilisé par un autre utilisateur<br></p>";
                         }
                         
                         elseif (mysqli_query($connexion, $query)) {
-                            $valide = "vous modifié '$login' à '$newLogin' <br>";
-                            header("Refresh:1");
+                            $valide = "<p style= 'color: green'>vous modifié '$login' à '$newLogin' <br></p>";
+                            header("Refresh:2");
                             $_SESSION['login'] = $newLogin;
                         }
                         
                     }else {
-                        $vide = "Remplissez le formulaire.<br>";
+                        $vide = "<p style= 'color: red'>Remplissez le formulaire.<br></p>";
                     }
                 }
 
@@ -159,17 +173,17 @@ $oui="";
                         $query = "UPDATE utilisateurs SET nom='" . htmlentities(trim($newNom)) . "' WHERE login='$login'";
             
                         if (mysqli_query($connexion, $query)) {
-                            $valide = "vous avez bien modifier votre nom($nom) à ($newNom)";
-                            header("Refresh:3");
+                            $valide = "<p style= 'color: green'>vous avez bien modifier votre nom($nom) à ($newNom)</p>";
+                            header("Refresh:2");
             
                         }
                         
                     }else {
-                        $vide = "Remplissez le formulaire.<br>";
+                        $vide = "<p style= 'color: red'>Remplissez le formulaire.<br></p>";
                     }
                 }
 
-                //modif nom//
+                //modif prenom//
             
                 if (isset($_POST['modifierprenom'])) {
                     $formNewPrenom = "
@@ -187,12 +201,12 @@ $oui="";
                         $query = "UPDATE utilisateurs SET prenom='" . htmlentities($newPrenom) . "' WHERE login='$login'";
             
                         if (mysqli_query($connexion, $query)) {
-                            $valide = "vous avez bien modifier votre prénom($prenom) à ($newPrenom)";
-                            header("Refresh:1"); 
+                            $valide = "<p style= 'color: green'>vous avez bien modifier votre prénom($prenom) à ($newPrenom)</p>";
+                            header("Refresh:2"); 
                         }
                         
                     }else {
-                        $vide = "Remplissez le formulaire.<br>";
+                        $vide = "<p style= 'color: red'>Remplissez le formulaire.<br></p>";
                     }
                 }
 
@@ -217,20 +231,20 @@ $oui="";
                         $query = "UPDATE utilisateurs SET password='" . htmlentities($newpassword) . "' WHERE login='$login'";
                 if ($_POST['pass'] == $password) {
                     if ($newpassword != $confirm_password) {
-                        $same = "le mot de passe n'est pas identique.<br>";
+                        $same = "<p style= 'color: red'>le mot de passe n'est pas identique.<br></p>";
                     }
                     
                     elseif (mysqli_query($connexion, $query)) {
-                        echo "Le mot de passe a bien été changé";
-                        header("Refresh:3"); 
+                        echo "<p style= 'color: green'>Le mot de passe a bien été changé</p>";
+                        header("Refresh:2"); 
                     }
                 }else {
-                    $wrong = "Le mot de passe n'est pas correct.";
+                    $wrong = "<p style= 'color: red'>Le mot de passe n'est pas correct.</p>";
                     }
                         
                 
                     } else {
-                        $vide = "Remplissez le formulaire.<br>";
+                        $vide = "<p style= 'color: red'>Remplissez le formulaire.<br></p>";
                     }
                 
                 }
@@ -249,7 +263,7 @@ $oui="";
                      
                     (mysqli_query($connexion, "DELETE FROM utilisateurs WHERE login = '$login'"));
                     session_unset ( );
-                    $oui = "compte supprimé.";
+                    $oui = "<p style= 'color: green'>compte supprimé.</p>";
                     header("Refresh:2"); 
                     }
             ?>

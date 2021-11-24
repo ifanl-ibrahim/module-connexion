@@ -15,7 +15,7 @@
     <nav class="nav">
         <ul>
             <li><a><img id="logo-navbar" src="./images/logoibra.png"></a></li>
-            <li><a href="./index.php">Hom</a></li>
+            <li><a href="./index.php">Home</a></li>
             <li><a href="./inscription.php">Inscription</a></li>
             <li><a href="./connexion.php">Connexion</a></li>
         </ul>
@@ -25,7 +25,7 @@
             <!-- menu mobil  -->
             <button class="dropbutton"><img id="logo-navbar" src="./images/logoibra.png"></button>
             <div class="container-button">
-                <a href="./index.php">Hom</a>
+                <a href="./index.php">Home</a>
                 <a href="./inscription.php">Inscription</a>
                 <a href="./connexion.php">Connexion</a>
             </div>
