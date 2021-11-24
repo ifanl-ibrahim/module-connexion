@@ -35,10 +35,12 @@ $res = mysqli_fetch_all($query);
 <body>
 
 <header>
-    <nav>
+    <nav class="nav">
         <ul>
             <li><a><img id="logo-navbar" src="./images/logoibra.png"></a></li>
             <li><a href="./index.php">Home</a></li>
+            <li><a href="./profil.php">House</a></li>
+            <li><a href='./admin.php'>Admin House</a></li>
         </ul>
     </nav>
 
@@ -47,8 +49,8 @@ $res = mysqli_fetch_all($query);
             <button class="dropbutton"><img id="logo-navbar" src="./images/logoibra.png"></button>
             <div class="container-button">
                 <a href="./index.php">Hom</a>
-                <a href="./inscription.php">Inscription</a>
-                <a href="./connexion.php">Connexion</a>
+                <a href="./profil.php">House</a>
+                <a href='./admin.php'>Admin House</a>
             </div>
         </div>
 </header>

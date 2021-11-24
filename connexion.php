@@ -12,7 +12,7 @@
 <body>
 
 <header>
-    <nav>
+    <nav class="nav">
         <ul>
             <li><a><img id="logo-navbar" src="./images/logoibra.png"></a></li>
             <li><a href="./index.php">Home</a></li>

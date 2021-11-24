@@ -20,8 +20,19 @@ session_start()
         <ul>
             <li><a><img id="logo-navbar" src="./images/logoibra.png"></a></li>
             <li><a href="./index.php">Home</a></li>
-            <li><a href="./inscription.php">Inscription</a></li>
-            <li><a href="./connexion.php">Connexion</a></li>
+            <?php
+                if (isset($_SESSION['login'])){
+                    echo "<li><a href='./profil.php'>House</a></li>";
+                }
+                elseif (isset($_SESSION['nom']['admin'])) {
+                    echo "<li><a href='./profil.php'>House</a></li>";
+                    echo "<li><a href='./admin.php'>Admin House</a></li>";
+                }
+                elseif (!isset($_SESSION['admin'])) { 
+                    echo "<li><a href='./inscription.php'>Inscription</a></li>";
+                    echo  "<li><a href='./connexion.php'>Connexion</a></li>";
+                }
+            ?>
         </ul>
     </nav>
 
@@ -30,8 +41,20 @@ session_start()
             <button class="dropbutton"><img id="logo-navbar" src="./images/logoibra.png"></button>
             <div class="container-button">
                 <a href="./index.php">Hom</a>
-                <a href="./inscription.php">Inscription</a>
-                <a href="./connexion.php">Connexion</a>
+                <?php
+                if (isset($_SESSION['login'])){
+                    echo "<a href='./profil.php'>House</a>";
+                }
+                elseif (isset($_SESSION['admin'])) {
+                    echo "<a href='./admin.php'>House</a>";
+                }
+                elseif (!isset($_SESSION['admin']) || !isset($_SESSION['login'])) { 
+                    echo "<a href='./inscription.php'>Inscription</a>";
+                    echo "<a href='./connexion.php'>Connexion</a>";
+                }
+                ?>
+                
+                
             </div>
         </div>
 </header>
