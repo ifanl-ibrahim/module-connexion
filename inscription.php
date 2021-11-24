@@ -15,9 +15,9 @@
     <nav class="nav">
         <ul>
             <li><a><img id="logo-navbar" src="./images/logoibra.png"></a></li>
-                <a href="./index.php">Hom</a>
-                <a href="./inscription.php">Inscription</a>
-                <a href="./connexion.php">Connexion</a>
+            <li><a href="./index.php">Hom</a></li>
+            <li><a href="./inscription.php">Inscription</a></li>
+            <li><a href="./connexion.php">Connexion</a></li>
         </ul>
     </nav>
 

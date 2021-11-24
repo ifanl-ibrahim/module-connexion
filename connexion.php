@@ -45,8 +45,8 @@
         session_start();
 
         $connexion = mysqli_connect('localhost', 'root', '', 'moduleconnexion');
-        $login = $_POST["login"]; 
-        $password = $_POST["password"];
+        $login = trim($_POST['login']); 
+        $password = trim($_POST['password']);
 
         if($login !== "" && $password !== "") {
             $req = "SELECT count(*) FROM utilisateurs WHERE login = '$login' AND password='$password'";
