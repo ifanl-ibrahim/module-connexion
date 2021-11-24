@@ -21,16 +21,16 @@ session_start()
             <li><a><img id="logo-navbar" src="./images/logoibra.png"></a></li>
             <li><a href="./index.php">Home</a></li>
             <?php
-                if (isset($_SESSION['login'])){
-                    echo "<li><a href='./profil.php'>House</a></li>";
-                }
-                elseif (isset($_SESSION['nom']['admin'])) {
+                if (isset($_SESSION['login']) == 'admin') {
                     echo "<li><a href='./profil.php'>House</a></li>";
                     echo "<li><a href='./admin.php'>Admin House</a></li>";
                 }
-                elseif (!isset($_SESSION['admin'])) { 
+                elseif (isset($_SESSION['login']) != 'admin') {
+                    echo "<li><a href='./profil.php'>House</a></li>";
+                }
+                elseif (!isset($_SESSION['login'])) { 
                     echo "<li><a href='./inscription.php'>Inscription</a></li>";
-                    echo  "<li><a href='./connexion.php'>Connexion</a></li>";
+                    echo "<li><a href='./connexion.php'>Connexion</a></li>";
                 }
             ?>
         </ul>
@@ -40,21 +40,20 @@ session_start()
             <!-- menu mobil  -->
             <button class="dropbutton"><img id="logo-navbar" src="./images/logoibra.png"></button>
             <div class="container-button">
-                <a href="./index.php">Hom</a>
+                <a href="./index.php">Home</a>
                 <?php
-                if (isset($_SESSION['login'])){
+                if (isset($_SESSION['login']) == 'admin') {
+                    echo "<a href='./profil.php'>House</a>";
+                    echo "<a href='./admin.php'>Admin House</a>";
+                }
+                elseif (isset($_SESSION['login']) != 'admin') {
                     echo "<a href='./profil.php'>House</a>";
                 }
-                elseif (isset($_SESSION['admin'])) {
-                    echo "<a href='./admin.php'>House</a>";
-                }
-                elseif (!isset($_SESSION['admin']) || !isset($_SESSION['login'])) { 
+                elseif (!isset($_SESSION['login'])) { 
                     echo "<a href='./inscription.php'>Inscription</a>";
                     echo "<a href='./connexion.php'>Connexion</a>";
                 }
                 ?>
-                
-                
             </div>
         </div>
 </header>
