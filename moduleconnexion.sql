@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : mar. 23 nov. 2021 à 17:58
+-- Généré le : mer. 24 nov. 2021 à 22:26
 -- Version du serveur :  5.7.31
 -- Version de PHP : 7.3.21
 
@@ -35,7 +35,7 @@ CREATE TABLE IF NOT EXISTS `utilisateurs` (
   `nom` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `utilisateurs`
@@ -44,7 +44,9 @@ CREATE TABLE IF NOT EXISTS `utilisateurs` (
 INSERT INTO `utilisateurs` (`id`, `login`, `prenom`, `nom`, `password`) VALUES
 (1, 'admin', 'admin', 'admin', 'admin'),
 (4, 'mehdinou', 'mehdi', 'idriss', 'mehdi'),
-(3, 'luxor', 'bass', 'sataf', 'bassem');
+(3, 'luxor', 'bass', 'sataf', 'bassem'),
+(5, 'ibra10', 'ifanl', 'ibrahim', 'ibrahim'),
+(6, 'kkk', 'kkk', 'kkk', 'kkk');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
