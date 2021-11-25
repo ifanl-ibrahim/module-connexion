@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shorcut icon" href="./Images/logoibra.png">
+    <link rel="shorcut icon" href="./images/logoibra.png">
     <link href="https : //fonts.googleapis.com/css2? family= Abril+Fatface & display=swap" rel="stylesheet">
     <title>Login</title>
 </head>
@@ -25,7 +25,7 @@
             <!-- menu mobil  -->
             <button class="dropbutton"><img id="logo-navbar" src="./images/logoibra.png"></button>
             <div class="container-button">
-                <a href="./index.php">Hom</a>
+                <a href="./index.php">Home</a>
                 <a href="./inscription.php">Inscription</a>
                 <a href="./connexion.php">Connexion</a>
             </div>

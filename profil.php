@@ -36,7 +36,7 @@ $oui="";
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shorcut icon" href="./Images/logoibra.png">
+    <link rel="shorcut icon" href="./images/logoibra.png">
     <link href="https : //fonts.googleapis.com/css2? family= Abril+Fatface & display=swap" rel="stylesheet">
     <title>MyProfil</title>
 </head>
@@ -141,7 +141,7 @@ $oui="";
                             $same = "<p style= 'color: red'>utiliser un autre que $login<br></p>";
                         }
                         
-                        elseif (mysqli_num_rows($checklogin) == 0) {
+                        elseif (mysqli_num_rows($checklogin) !== 0) {
                             $existe = "<p style= 'color: red'>Le login est déjà utilisé par un autre utilisateur<br></p>";
                         }
                         

@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="./module.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inscription</title>
-    <link rel="shorcut icon" href="./Images/logoibra.png">
+    <link rel="shorcut icon" href="./images/logoibra.png">
     <link href="https : //fonts.googleapis.com/css2? family= Abril+Fatface & display=swap" rel="stylesheet">
 </head>
 <body>
